@@ -1,0 +1,21 @@
+---
+title: "**Bhubaneswar Map**"
+author: "*Soumya Satyakanta Sethi*"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## **17th August, 2020**
+
+```{r echo=FALSE, fig.align= "center"}
+library(leaflet)
+my_map <- leaflet() %>% 
+          addTiles() %>% 
+          addMarkers(lat=20.2961, lng= 85.8245, popup="Bhubaneswar, Odisha, India")
+my_map
+```
+
+*A assignment project submitted for Week 2 assignment of* **Developing Data Products** *course on Coursera by John Hopkins University*
