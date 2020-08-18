@@ -1,0 +1,37 @@
+---
+title: "Ozone Variation over the City of New York"
+author: "*Soumya Satyakanta Sethi*"
+date: "18/08/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Details of airquality dataset
+
+Daily readings of the following air quality values for May 1, 1973 (a Tuesday) to September 30, 1973.
+
+- Ozone: Mean ozone in parts per billion from 1300 to 1500 hours at Roosevelt Island
+- Wind: Average wind speed in miles per hour at 0700 and 1000 hours at LaGuardia Airport
+- Temp: Maximum daily temperature in degrees Fahrenheit at La Guardia Airport.
+- Month:	numeric	Month (1--12)
+
+## Variation of Ozone
+```{r include=FALSE}
+library(plotly)
+aqr <- airquality
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+fig <- plot_ly(aqr, x = ~Wind, y = ~Ozone, mode = "markers",
+        color = as.factor(aqr$Month), size = aqr$Temp)
+fig
+```
+Size represents the variation in Temperature
+
+## Reference
+Chambers, J. M., Cleveland, W. S., Kleiner, B. and Tukey, P. A. (1983) Graphical Methods for Data Analysis. Belmont, CA: Wadsworth.
+
+
