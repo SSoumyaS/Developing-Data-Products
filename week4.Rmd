@@ -1,0 +1,52 @@
+---
+title: "Statistical Distribution"
+author: "Soumya Satyakanta Sethi"
+date: "19/08/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+The Shiny app, made using R package shiny, provides a interface to the user to explore various types of statistical functions. The user can visualise the distributions and can explore the variation by varying different properties of the distribution. It has two tabs: (1) to explore the different distribution and (2) to explore the distribution of the simulated sample means of respective distributions.
+
+## Distributions
+
+- Normal Distribution
+- Uniform Distribution
+- Log normal distribution
+- Exponential Distribution
+
+## Distribution Plots
+
+**Ex. Exponential Distribution**
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(plotly)
+library(ggplot2)
+set.seed(777)
+simExmp <- sort(rexp(80, 0.2))
+plot_ly(x = ~simExmp, type = "histogram")
+```
+
+## Distribution of the Sample means
+
+We plot sample mean of 1000 samples of exponential distribution
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+set.seed(777)
+simMeans = NULL
+for (i in 1 : 1000){
+  simMeans <- c(simMeans,mean(rexp(80,0.2)))
+}
+plot_ly(x = ~simMeans, type = "histogram")
+```
+
+## Summary
+
+We noticed that, the distribution of means of samples drawn from a
+exponential distribution exhibits a distribution more similar to that of a normal distribution.
+
+The app provides such options to explore the other distributions.
